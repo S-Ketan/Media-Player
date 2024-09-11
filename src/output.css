@@ -554,6 +554,40 @@ video {
   --tw-contain-style:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .fixed {
   position: fixed;
 }
@@ -582,12 +616,20 @@ video {
   margin: auto;
 }
 
-.m-5 {
-  margin: 1.25rem;
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.ml-\[20vw\] {
+  margin-left: 20vw;
 }
 
 .mt-16 {
   margin-top: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-5 {
@@ -598,20 +640,12 @@ video {
   margin-top: 1.75rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .flex {
   display: flex;
 }
 
-.hidden {
-  display: none;
+.h-10 {
+  height: 2.5rem;
 }
 
 .h-24 {
@@ -620,6 +654,10 @@ video {
 
 .h-32 {
   height: 8rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .h-\[100\%\] {
@@ -638,16 +676,16 @@ video {
   height: 30vh;
 }
 
-.h-16 {
-  height: 4rem;
+.h-\[90vh\] {
+  height: 90vh;
 }
 
-.h-0 {
-  height: 0px;
+.h-full {
+  height: 100%;
 }
 
-.h-10 {
-  height: 2.5rem;
+.w-40 {
+  width: 10rem;
 }
 
 .w-\[100\%\] {
@@ -662,8 +700,32 @@ video {
   width: 20vw;
 }
 
+.w-\[25\%\] {
+  width: 25%;
+}
+
+.w-\[45vw\] {
+  width: 45vw;
+}
+
+.w-\[50\%\] {
+  width: 50%;
+}
+
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[65vw\] {
+  width: 65vw;
+}
+
 .w-\[85\%\] {
   width: 85%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .w-auto {
@@ -674,16 +736,8 @@ video {
   width: 100%;
 }
 
-.w-5 {
-  width: 1.25rem;
-}
-
-.w-20 {
-  width: 5rem;
-}
-
-.w-40 {
-  width: 10rem;
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .list-decimal {
@@ -698,12 +752,20 @@ video {
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-around {
   justify-content: space-around;
 }
 
 .gap-10 {
   gap: 2.5rem;
+}
+
+.gap-14 {
+  gap: 3.5rem;
 }
 
 .gap-2 {
@@ -718,8 +780,20 @@ video {
   overflow: auto;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-2 {
@@ -741,14 +815,37 @@ video {
   background-color: rgb(46 46 46 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#C0C0C0\] {
+.bg-\[\#2e2d2d\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(192 192 192 / var(--tw-bg-opacity));
+  background-color: rgb(46 45 45 / var(--tw-bg-opacity));
+}
+
+.bg-blue-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 37 84 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-yellow-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-16 {
@@ -761,10 +858,6 @@ video {
 
 .p-3 {
   padding: 0.75rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
 }
 
 .pl-5 {
@@ -804,14 +897,32 @@ video {
   font-weight: 700;
 }
 
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
 }
 
 .scrollbar-hide {

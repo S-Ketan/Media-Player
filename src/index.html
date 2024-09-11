@@ -6,112 +6,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../images/logo.png">
+
+    <title>Media Player</title>
 
 
 </head>
 
 <body class="bg-[#1C1C1C]">
-    <div class="fixed h-[100vh] w-[20vw]  bg-[#2E2E2E] flex flex-col items-center">
-        <div>
-            <img src="../images/logo.png" alt="" class=" h-24 w-auto m-auto">
-        </div>
-        <div class=" w-[85%] p-16 ">
-            <div class=" flex flex-col gap-10 w-full font-bold text-base ">
 
-                <div class="flex items-center gap-5 m-auto w-full">
+    <aside>
 
-                    <i class="fa-solid fa-compact-disc" style="color: #FFD43B;"></i>
-                    <p class="text-white">Music</p>
+        <div class="fixed h-[100vh] w-[20vw]  bg-[#2E2E2E] flex flex-col items-center">
+            <div>
+                <img src="../images/logo.png" alt="" class=" h-24 w-auto m-auto">
+            </div>
+            <div class=" w-[85%] p-16 ">
+                <div class=" flex flex-col gap-10 w-full font-bold text-base ">
+
+                    <div class="flex items-center gap-5 m-auto w-full">
+
+                        <i class="fa-solid fa-compact-disc" style="color: #FFD43B;"></i>
+                        <p class="text-white">Music</p>
+                    </div>
+                    <div class="flex items-center gap-5 m-auto w-full">
+
+                        <i class="fa-solid fa-globe" style="color: white;"></i>
+                        <p class="text-white">Find</p>
+                    </div>
+                    <div class="flex items-center gap-5 m-auto w-full">
+
+                        <i class="fa-solid fa-microphone-lines" style="color: white;"></i>
+                        <p class="text-white">Singer</p>
+                    </div>
+                    <div class="flex items-center gap-5 m-auto w-full">
+
+                        <i class="fa-solid fa-clover" style="color: white;"></i>
+                        <p class="text-white">Albums</p>
+                    </div>
                 </div>
-                <div class="flex items-center gap-5 m-auto w-full">
+                <p class="text-2xl flex mt-16 text-white">Songs List</p>
+                <div class=" text-white  flex flex-col w-[100%] h-32 justify-around mt-7">
+                    <pre>-  Favourite Music</pre>
+                    <pre>-  POP Music</pre>
+                    <pre>-  EDM Music</pre>
 
-                    <i class="fa-solid fa-globe" style="color: white;"></i>
-                    <p class="text-white">Find</p>
-                </div>
-                <div class="flex items-center gap-5 m-auto w-full">
-
-                    <i class="fa-solid fa-microphone-lines" style="color: white;"></i>
-                    <p class="text-white">Singer</p>
-                </div>
-                <div class="flex items-center gap-5 m-auto w-full">
-
-                    <i class="fa-solid fa-clover" style="color: white;"></i>
-                    <p class="text-white">Albums</p>
                 </div>
             </div>
-            <p class="text-2xl flex mt-16 text-white">Songs List</p>
-            <div class=" text-white  flex flex-col w-[100%] h-32 justify-around mt-7">
-                <pre>-  Favourite Music</pre>
-                <pre>-  POP Music</pre>
-                <pre>-  EDM Music</pre>
-
-            </div>
         </div>
-    </div>
-    <div class="fixed w-full h-[10vh] bg-[#C0C0C0] bottom-0 z-[50]">
-
-    </div>
-    <div class="fixed h-[100vh] w-[15vw]  bg-[#2E2E2E] flex flex-col items-center right-0 p-3">
-        <div class="h-[10vh] w-full flex items-center gap-2">
+    </aside>
+    <div class="fixed w-full h-[10vh] bg-[#2e2d2d] bottom-0 z-[50] p-2 flex gap-14 text-white">
+        <div class="flex items-center gap-5 ml-4  w-[20vw]">
             <div class="h-[100%]  ">
-                <img src="../images/🎒.jpg" alt="" class="h-[100%] w-auto rounded-full">
+                <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[100%] w-auto rounded-full">
             </div>
             <div>
-                <p class="text-white">Ethereal</p>
-                <p class="text-white text-xs">Premium Account</p>
+                <p class="text-white text-xl">Payphone</p>
+                <p class="text-white text-xs">Maroon 5</p>
             </div>
-            <i class="fa-solid fa-envelope" style="color: white;"></i>
-            <i class="fa-solid fa-gear" style="color: white;"></i>
-        </div>
-        <div class="mt-5 w-full">
-            <p class="font-bold text-white text-xl">Weekly List</p>
-            <div class="h-[30vh] overflow-auto text-white scrollbar-hide ">
-                <ol class="list-decimal pl-5 text-sm">
-                    <li class=" p-2 ">Hymn for the Weekend</li>
-                    <li class=" p-2">What Makes you beautiful</li>
-                    <li class="p-2  bg-yellow-300 text-black">Payphone <i class="fa-solid fa-play"
-                            style="color: black;"></i></li>
-                    <li class=" p-2">Dynamite</li>
-                    <li class=" p-2">Rolling in the Deep</li>
-                    <li class=" p-2">Cruel Summer</li>
-                    <li class=" p-2">Beauty and the beat</li>
-                    <li class=" p-2">Dusk Till Dawn</li>
-                    <li class=" p-2">Cheap Thrills</li>
-                    <li class=" p-2">Closer</li>
 
-                </ol>
+        </div>
+        <div class="flex items-center w-[45vw] gap-10">
+            <p>3:35</p>
+
+            <div class="w-full bg-gray-700 h-4 rounded-lg overflow-hidden ">
+                <div id="loadingBar" class="h-full bg-green-500 rounded-lg transition-all duration-500"
+                    style="width: 0%;"></div>
             </div>
         </div>
-        <div class="mt-5 w-full">
-            <p class="font-bold text-white text-xl">Sales Support</p>
-            <div class="h-[10vh] w-full flex items-center gap-2 p-2 mt-2">
-                <div class="h-[100%] ">
-                    <img src="../images/End of a Beginning.jpeg" alt="" class="h-[100%] w-auto ">
-                </div>
-                <div>
-                    <p class="text-white">End of Beginning</p>
-                    <p class="text-white text-xs">Djo</p>
-                </div>
+        <div class="w-[20vw] flex  justify-between p-2 text-white">
+            <div class="flex justify-between w-[50%] items-center">
+                <button><i class="fa-solid fa-backward"></i></button>
 
+                <button><i class="fa-solid fa-play"></i></button>
+                <button><i class="fa-solid fa-forward"></i></button>
             </div>
-            <div class="h-[10vh] w-full flex items-center gap-2 mt-2 p-2">
-                <div class="h-[100%]  ">
-                    <img src="../images/Stay.jpeg" alt="" class="h-[100%] w-auto ">
-                </div>
-                <div>
-                    <p class="text-white">Stay</p>
-                    <p class="text-white text-xs">Justin Bieber</p>
-                </div>
-
-            </div>
-            <div class="w-full text-center	mt-5">
-
-                <button class="border-white border-2 text-white w-40 h-10">
-                    View all
-                </button>
+            <div class="flex justify-between w-[25%] items-center">
+                <button><i class="fa-solid fa-volume-high"></i></button>
+                <button><i class="fa-solid fa-rotate-right"></i></button>
             </div>
         </div>
+
+
     </div>
+    <aside>
+
+
+        <div class="fixed h-[100vh] w-[15vw]   flex flex-col items-center right-0 p-3">
+            <div class="h-[10vh] w-full flex items-center gap-2">
+                <div class="h-[100%]  ">
+                    <img src="../images/🎒.jpg" alt="" class="h-[100%] w-auto rounded-full">
+                </div>
+                <div>
+                    <p class="text-white">Ethereal</p>
+                    <p class="text-white text-xs">Premium Account</p>
+                </div>
+                <i class="fa-solid fa-envelope" style="color: white;"></i>
+                <i class="fa-solid fa-gear" style="color: white;"></i>
+            </div>
+            <div class="mt-5 w-full">
+                <p class="font-bold text-white text-xl">Weekly List</p>
+                <div class="h-[30vh] overflow-auto text-white scrollbar-hide ">
+                    <ol class="list-decimal pl-5 text-sm">
+                        <li class=" p-2 ">Hymn for the Weekend</li>
+                        <li class=" p-2">What Makes you beautiful</li>
+                        <li class="p-2  bg-yellow-300 text-black">Payphone <i class="fa-solid fa-play"
+                                style="color: black;"></i></li>
+                        <li class=" p-2">Dynamite</li>
+                        <li class=" p-2">Rolling in the Deep</li>
+                        <li class=" p-2">Cruel Summer</li>
+                        <li class=" p-2">Beauty and the beat</li>
+                        <li class=" p-2">Dusk Till Dawn</li>
+                        <li class=" p-2">Cheap Thrills</li>
+                        <li class=" p-2">Closer</li>
+
+                    </ol>
+                </div>
+            </div>
+            <div class="mt-5 w-full">
+                <p class="font-bold text-white text-xl">Sales Support</p>
+                <div class="h-[10vh] w-full flex items-center gap-2 p-2 mt-2">
+                    <div class="h-[100%] ">
+                        <img src="../images/End of a Beginning.jpeg" alt="" class="h-[100%] w-auto ">
+                    </div>
+                    <div>
+                        <p class="text-white">End of Beginning</p>
+                        <p class="text-white text-xs">Djo</p>
+                    </div>
+
+                </div>
+                <div class="h-[10vh] w-full flex items-center gap-2 mt-2 p-2">
+                    <div class="h-[100%]  ">
+                        <img src="../images/Stay.jpeg" alt="" class="h-[100%] w-auto ">
+                    </div>
+                    <div>
+                        <p class="text-white">Stay</p>
+                        <p class="text-white text-xs">Justin Bieber</p>
+                    </div>
+
+                </div>
+                <div class="w-full text-center	mt-5">
+
+                    <button class="border-white border-2 text-white w-40 h-10">
+                        View all
+                    </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <div class="bg-blue-950 w-[65vw] h-[90vh] ml-[20vw] p-10">
+            <div class="text-white w-[60%] flex gap-5 items-center">
+                <input type="text" name="search" id="search" placeholder="    Search..."
+                    class="w-[90%] rounded-full p-1 text-black">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+       
+
+
+
+        </div>
+    </main>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            center: true,
+            loop: true,
+            nav: true,
+            items: 5,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+            responsive: {
+                0: {
+                    items: 2,
+                },
+                768: {
+                    items: 3,
+                },
+                990: {
+                    items: 5,
+                }
+            },
+            onInitialized: coverFlowEfx,
+            onTranslate: coverFlowEfx,
+        });
+
+        function coverFlowEfx(e) {
+            if ($('.owl-dots')) {
+                $('.owl-dots').remove();
+            }
+            idx = e.item.index;
+            $('.owl-item.big').removeClass('big');
+            $('.owl-item.medium').removeClass('medium');
+            $('.owl-item.mdright').removeClass('mdright');
+            $('.owl-item.mdleft').removeClass('mdleft');
+            $('.owl-item.smallRight').removeClass('smallRight');
+            $('.owl-item.smallLeft').removeClass('smallLeft');
+            $('.owl-item').eq(idx - 1).addClass('medium mdleft');
+            $('.owl-item').eq(idx).addClass('big');
+            $('.owl-item').eq(idx + 1).addClass('medium mdright');
+            $('.owl-item').eq(idx + 2).addClass('smallRight');
+            $('.owl-item').eq(idx - 2).addClass('smallLeft');
+        }
+
+        var click = false;
+
+        $('#play-carousel').click(function (evt) {
+            click = !click;
+            if (click) {
+                $('.status').html('Autoplay: ON');
+                $('.owl-carousel').trigger('play.owl.autoplay', [1000, 1000]);
+                $(this).html("Stop");
+            } else {
+                $('.owl-carousel').trigger('stop.owl.autoplay');
+                $(this).html("Play");
+                $('.status').html('Autoplay: OFF');
+            }
+
+        });
+    </script>
+
+
 </body>
 
 </html>
