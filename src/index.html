@@ -14,6 +14,35 @@
             min-width: 100%;
             transition: transform 0.5s ease-in-out;
         }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 30% 30% 30% 30%;
+
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            background: yellow;
+            /* Change the track color to yellow */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 100%;
+            background: goldenrod;
+            border: 2px solid black;
+            margin-top: -4px;
+
+        }
     </style>
 
 </head>
@@ -76,23 +105,33 @@
             </div>
 
         </div>
-        <div class="flex items-center w-[45vw] gap-10">
+        <div class="flex items-center w-[45vw] gap-10 ">
             <p>3:35</p>
 
-            <div class="w-full bg-gray-700 h-4 rounded-lg overflow-hidden ">
-                <div id="loadingBar" class="h-full bg-green-500 rounded-lg transition-all duration-500"
-                    style="width: 0%;"></div>
+            <div class="w-full bg-gray-700 h-3 rounded-lg overflow-hidden" id="loadingBar">
+                <div class="bg-yellow-300 h-full w-[0%] transition-all ease-linear" id="progressedBar"></div>
             </div>
+            <audio src="../Music/Trial.wav" controls class="hidden" id="music"></audio>
         </div>
         <div class="w-[20vw] flex  justify-between p-2 text-white">
             <div class="flex justify-between w-[50%] items-center">
                 <button><i class="fa-solid fa-backward"></i></button>
 
-                <button><i class="fa-solid fa-play"></i></button>
+                <button id="playPause"><i class="fa-solid fa-play"></i></button>
                 <button><i class="fa-solid fa-forward"></i></button>
             </div>
-            <div class="flex justify-between w-[25%] items-center">
-                <button><i class="fa-solid fa-volume-high"></i></button>
+            <div class="flex  w-[25%] items-center gap-10">
+                <div class="flex flex-col gap-2  relative">
+
+                    <div class="absolute right-[0px] translate-x-14 -translate-y-20 hidden" id="sliderParent">
+                        <input type="range" min="0" name="" id="slider" max="100" style="transform: rotate(-90deg);">
+                    </div>
+                    <div class="flex gap-2 ">
+
+                        <p id="sliderValue" class=" w-[30px]"></p>
+                        <button onclick="displayVolumeSlider()"><i class="fa-solid fa-volume-high "></i></button>
+                    </div>
+                </div>
                 <button><i class="fa-solid fa-rotate-right"></i></button>
             </div>
         </div>
@@ -299,79 +338,139 @@
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/Future.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">Future</p>
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/SZA.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">SZA</p>
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/eminem.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">Eminem</p>
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/justin bieber.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">Justin Bieber</p>
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/shawn mendes.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">Shawn Mendes</p>
                     </div>
                     <div class=" h-[150px]">
                         <img src="../images/charlie puth.jpeg" alt=""
-                            class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-
+                        class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
+                        
                         <p class=" mt-2 ">Charlie Puth</p>
                     </div>
-
+                    
                 </div>
             </div>
-
+            
         </div>
+        
+        
+        
+        
+    </div>
+</main>
+<script>
+    const carousel = document.getElementById('carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+    let isMusicPlayerVisible = false;
+    let isSliderVisible = false;
+    let music = document.getElementById('music');
+    let progressedBar =document.getElementById('progressedBar');
+    let volume = document.getElementById('slider');
+    let volumeValue = document.getElementById('sliderValue');
+    let playPause = document.getElementById('playPause')
+    let isAudioPlaying =false;
 
+    
+    function audioPlay(){
+        if(isAudioPlaying){
+            playPause.innerHTML=`<i class="fa-solid fa-pause"></i>`
+            isAudioPlaying=false;
+            music.play();
 
-
-
-        </div>
-    </main>
-    <script>
-        const carousel = document.getElementById('carousel');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const itemWidth = carousel.clientWidth;
-            carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        }else{
+            playPause.innerHTML=`<i class="fa-solid fa-play"></i>`
+            isAudioPlaying=true;
+            music.pause();
         }
-
+    }
+    playPause.addEventListener('click', audioPlay)
+    
+    function volumeUpdate() {
+    
+        volumeValue.innerText = volume.value;
+        music.volume=volume.value / 100;
+       
+    }
+    
+    function updateCarousel() {
+        const itemWidth = carousel.clientWidth;
+        carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+    }
+    
         document.getElementById('next').addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % items.length;
             updateCarousel();
         });
-
+        
         document.getElementById('prev').addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + items.length) % items.length;
             updateCarousel();
         });
-
+        
         updateCarousel();
+        
+        
+        
 
-        let isMusicPlayerVisible = false;
+        document.getElementById('currentSong').addEventListener('click', toggleMusicPlayer);
+        slider.addEventListener('input', volumeUpdate);
+        volume.addEventListener('input', volumeUpdate);
+        volumeUpdate();
 
-        function toggleMusicPlayer() {
+        function displayVolumeSlider() {
+            let sliderParent = document.getElementById('sliderParent');
+            if (isSliderVisible) {
+                sliderParent.style.display = "none";
+                isSliderVisible = false;
+            }
+            else {
+                sliderParent.style.display = "block";
+                isSliderVisible = true;
+            }
+
+        }
+
+       
+        
+       function loadingBar(){
+        let musicWidth = (music.currentTime / music.duration) * 100;
+        progressedBar.style.width = musicWidth + "%";
+        if(musicWidth === 100){
+            playPause.innerHTML=`<i class="fa-solid fa-play"></i>`;
+        }
+       }
+
+       music.addEventListener('timeupdate', loadingBar)
+       function toggleMusicPlayer() {
             let mainContent = document.getElementById("main");
             if (isMusicPlayerVisible) {
-            
+
                 mainContent.innerHTML = `
              <div class=" w-[65vw] h-[90vh] ml-[20vw] p-10 overflow-auto scrollbar-hide">
             <div class="text-white w-[60%] flex gap-5 items-center">
@@ -528,20 +627,20 @@
             `;
                 isMusicPlayerVisible = false;
             } else {
-               
+
                 mainContent.innerHTML = `
             <div class=" w-[65vw] h-[90vh] ml-[20vw] p-10 overflow-auto scrollbar-hide">
-                <div class=" h-full w-full relative z-[-30] p-10" style="background: url(../images/Maroon\\ 5\\ -\\ [Album]\\ Overexposed.jpeg); background-repeat: no-repeat; background-size: cover; background-position: center;">
-                    <div class="absolute inset-0 h-full w-full bg-white opacity-40 z-[-10]"></div>
-                    <div class="bg-black bg-opacity-50 border-black border-[5px] h-full w-full flex justify-around p-10 z-0 relative">
-                        <div class=" h-full bg-white text-center">
+                <div class=" h-full w-full relative  p-10" style="background: url(../images/Maroon\\ 5\\ -\\ [Album]\\ Overexposed.jpeg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 h-full w-full bg-white opacity-40 z-10"></div>
+                    <div class="bg-black bg-opacity-50 border-black border-[3px] h-full w-full flex justify-around p-10 z-20 relative rounded-3xl">
+                        <div class=" h-full bg-white text-center rounded-xl">
                             <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[70%] w-auto">
                             <p class="text-5xl">Payphone</p>
                             <p class="text-2xl mt-4 ">Maroon 5</p>
                         </div>
-                        <div class="bg-gray-800 border-white border-2 w-[40%] text-white p-3 ">
+                        <div class="bg-gray-800 border-white border-2 w-[40%] text-white p-3 overflow-auto scrollbar-hide rounded-xl">
                             <p class="text-4xl">Lyrics</p>
-                            <p class="mt-4 overflow-auto  h-[85%] w-full" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque impedit quae sint dolores totam aperiam rem sequi recusandae omnis? Illo, ipsum mollitia? Impedit ratione, nisi nesciunt harum placeat facere! Accusantium quisquam eum nihil molestias consequuntur beatae delectus cumque ducimus labore earum eos asperiores facilis nam temporibus quam tenetur, repudiandae illo. Odit, minima esse dolores fugit id velit error quae aperiam aliquam expedita eos quam doloribus similique voluptas quas eveniet, aspernatur suscipit itaque reprehenderit. Tempora tenetur ex delectus, perferendis nemo labore. Ad delectus voluptatum quaerat necessitatibus qui soluta illo consequatur obcaecati possimus minima inventore a at recusandae quibusdam, nobis eos quas exercitationem modi corporis quasi cumque? Quidem beatae eaque modi distinctio accusantium quam neque dolor delectus quis quos iure similique obcaecati officiis, minima cupiditate soluta sunt eos, accusamus harum, corporis deleniti aut illum recusandae? Odit, doloremque voluptatibus, ullam debitis magni facilis non quidem illo maiores reiciendis quibusdam. Explicabo quibusdam sunt sed?</p>
+                            <p class="mt-4 overflow-auto  h-[85%] w-full scrollbar-hide" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque impedit quae sint dolores totam aperiam rem sequi recusandae omnis? Illo, ipsum mollitia? Impedit ratione, nisi nesciunt harum placeat facere! Accusantium quisquam eum nihil molestias consequuntur beatae delectus cumque ducimus labore earum eos asperiores facilis nam temporibus quam tenetur, repudiandae illo. Odit, minima esse dolores fugit id velit error quae aperiam aliquam expedita eos quam doloribus similique voluptas quas eveniet, aspernatur suscipit itaque reprehenderit. Tempora tenetur ex delectus, perferendis nemo labore. Ad delectus voluptatum quaerat necessitatibus qui soluta illo consequatur obcaecati possimus minima inventore a at recusandae quibusdam, nobis eos quas exercitationem modi corporis quasi cumque? Quidem beatae eaque modi distinctio accusantium quam neque dolor delectus quis quos iure similique obcaecati officiis, minima cupiditate soluta sunt eos, accusamus harum, corporis deleniti aut illum recusandae? Odit, doloremque voluptatibus, ullam debitis magni facilis non quidem illo maiores reiciendis quibusdam. Explicabo quibusdam sunt sed?</p>
                         </div>
                     </div>
                 </div>
@@ -550,8 +649,6 @@
                 isMusicPlayerVisible = true;
             }
         }
-
-        document.getElementById('currentSong').addEventListener('click', toggleMusicPlayer);
     </script>
 
 
