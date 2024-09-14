@@ -14,6 +14,8 @@ let p_artistName = document.getElementById('p-artistName')
 let p_songImage = document.getElementById('p-songImage')
 let songDuration = document.getElementById('songDuration')
 let songList = document.getElementById("songList");
+let currentPlayingItem = null;
+let isShuffle = false;
 let songs = [
     {
         name: "Brown Rang",
@@ -79,10 +81,44 @@ p_artistName.innerText = songs[songIndex].artist;
 p_songTitle.innerText = songs[songIndex].name;
 music.src = songs[songIndex].location;
 
+document.getElementById('shuffleButton').addEventListener('click', toggleShuffle);
+
+function toggleShuffle() {
+    isShuffle = !isShuffle;
+    document.getElementById('shuffleButton').classList.toggle('text-yellow-400', isShuffle); // Change text color when active
+}
+
+function getNextSongIndex() {
+    if (isShuffle) {
+        // Shuffle mode is enabled
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * songs.length);
+        } while (newIndex === songIndex); // Ensure the new song is not the current song
+        return newIndex;
+    } else {
+        // Regular mode
+        return (songIndex + 1) % songs.length;
+    }
+}
+function getPreviousSongIndex() {
+    if (isShuffle) {
+        // Shuffle mode is enabled
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * songs.length);
+        } while (newIndex === songIndex); // Ensure the new song is not the current song
+        return newIndex;
+    } else {
+        // Regular mode
+        return (songIndex - 1 + songs.length) % songs.length;
+    }
+}
+
 function displaySongList() {
     const songList = document.getElementById('songList');
     songList.innerHTML = songs.map((song, index) =>
-        `<li class="p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer hover:font-bold" data-index="${index}">
+        `<li class="p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer hover:font-bold ${index === songIndex ? 'highlight' : ''}" data-index="${index}">
             ${song.name}
         </li>`
     ).join('');
@@ -90,27 +126,29 @@ function displaySongList() {
     const songItems = songList.querySelectorAll('li');
     songItems.forEach(item => {
         item.addEventListener('click', function () {
-            const songIndex = this.getAttribute('data-index'); // Get the correct song index
-            playSong(songIndex); // Pass the index to play the song
+            const songIndex = this.getAttribute('data-index'); 
+            playSong(songIndex); 
         });
     });
 }
-function playSong(index) {
-    const selectedSong = songs[index];
 
-    // Update the player with the selected song details
+
+function playSong(index) {
+    // Update UI elements
+    const selectedSong = songs[index];
     p_songTitle.innerText = selectedSong.name;
     p_artistName.innerText = selectedSong.artist;
     p_songImage.src = selectedSong.songImage;
-
-    // Set the audio source and play the song
     music.src = selectedSong.location;
     music.play();
-
-    // Update UI state
     playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     isAudioPlaying = true;
+
+    // Update the song index and display song list
+    songIndex = index;
+    displaySongList(); // Ensure the song list is updated to reflect changes
 }
+
 
 
 displaySongList();
@@ -140,26 +178,21 @@ window.addEventListener('keydown', function (event) {
     }
 });
 window.addEventListener('keydown', function (event) {
-
-    if (event.key === 'ArrowDown') {
-        volume.value--;
-        sliderValue.innerText = volume.value;
-        music.volume = volume.value / 100;
-    }
-});
-window.addEventListener('keydown', function (event) {
-
-    if (event.key === 'ArrowUp') {
+    if (event.key === 'ArrowUp' && volume.value < 100) {
         volume.value++;
-        sliderValue.innerText = volume.value;
-        music.volume = volume.value / 100;
+        volumeUpdate();
+    }
+    if (event.key === 'ArrowDown' && volume.value > 0) {
+        volume.value--;
+        volumeUpdate();
     }
 });
+
 window.addEventListener('keydown', function (event) {
-    // Check if the pressed key is the spacebar
+    
     if (event.key === ' ' || event.code === 'Space') {
-        event.preventDefault(); // Prevent default spacebar scroll behavior
-        audioPlay(); // Call the audioPlay function
+        event.preventDefault(); 
+        audioPlay(); 
     }
 })
 
@@ -193,40 +226,24 @@ window.addEventListener('load', function () {
 document.getElementById('nextButton').addEventListener('click', nextButton);
 
 function nextButton() {
-    if (songIndex !== songs.length - 1) {
-
-        songIndex += 1;
-
-    } else {
-        songIndex = 0;
-
-    }
+    songIndex = getNextSongIndex();
     musicDisplay();
-    playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`
+    playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     music.play();
 }
-
 function previousButton() {
-    if (songIndex !== 0) {
-        songIndex -= 1;
-        musicDisplay();
-        playPause.innerHTML = '<i class="fa-solid fa-pause"></i>'
-        music.play();
-    }
-    else {
-        songIndex = songs.length - 1;
-        musicDisplay();
-        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`
-        music.play();
-    }
+    songIndex = getPreviousSongIndex();
+    musicDisplay();
+    playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    music.play();
 }
-
 function musicDisplay() {
     music.src = songs[songIndex].location;
     p_songTitle.innerText = songs[songIndex].name;
     p_artistName.innerText = songs[songIndex].artist;
     p_songImage.src = songs[songIndex].songImage;
-    coverImage.style.backgroundImage = url(songs[songIndex].artistImage);
+    coverImage.style.backgroundImage = `url(${songs[songIndex].artistImage})`;
+
 }
 
 
@@ -234,17 +251,17 @@ function musicDisplay() {
 
 
 function audioPlay() {
-    if (isAudioPlaying) {
-        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`
-        isAudioPlaying = false;
+    if (!isAudioPlaying) { // Audio is currently paused, so play it
         music.play();
-
-    } else {
-        playPause.innerHTML = `<i class="fa-solid fa-play"></i>`
+        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
         isAudioPlaying = true;
+    } else { // Audio is playing, so pause it
         music.pause();
+        playPause.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        isAudioPlaying = false;
     }
 }
+
 playPause.addEventListener('click', audioPlay)
 
 function volumeUpdate() {
