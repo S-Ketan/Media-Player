@@ -104,28 +104,28 @@
         <div class="flex items-center gap-5 ml-4  w-[20vw] p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer"
             id="currentSong">
             <div class="h-[100%]  ">
-                <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[100%] w-auto rounded-full">
+                <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[100%] w-auto rounded-full" id="p-songImage">
             </div>
             <div>
-                <p class=" text-xl">Payphone</p>
-                <p class=" text-xs">Maroon 5</p>
+                <p class=" text-xl" id="p-songTitle"></p>
+                <p class=" text-xs" id="p-artistName"></p>
             </div>
 
         </div>
         <div class="flex items-center w-[45vw] gap-10 ">
-            <p>3:35</p>
-
+            <p id="completedDuration"></p>
             <div class="w-full bg-gray-700 h-3 rounded-lg overflow-hidden" id="loadingBar">
                 <div class="bg-yellow-300 h-full w-[0%] transition-all ease-linear" id="progressedBar"></div>
             </div>
-            <audio src="../Songs/Sky full of stars.mp3" controls class="hidden" id="music"></audio>
+            <audio src="" controls class="hidden" id="music"></audio>
+            <p id="songDuration"></p>
         </div>
         <div class="w-[20vw] flex  justify-between p-2 text-white">
             <div class="flex justify-between w-[50%] items-center">
-                <button><i class="fa-solid fa-backward"></i></button>
+                <button id="previousButton" onclick="previousButton()"><i class="fa-solid fa-backward"></i></button>
 
                 <button id="playPause"><i class="fa-solid fa-play"></i></button>
-                <button><i class="fa-solid fa-forward"></i></button>
+                <button id="nextButton" onclick="nextButton()"><i class="fa-solid fa-forward"></i></button>
             </div>
             <div class="flex  w-[25%] items-center gap-10">
                 <div class="flex flex-col gap-2  relative">
@@ -139,7 +139,7 @@
                         <button onclick="displayVolumeSlider()"><i class="fa-solid fa-volume-high "></i></button>
                     </div>
                 </div>
-                <button><i class="fa-solid fa-rotate-right"></i></button>
+                <button onclick="shuffle()"><i class="fa-solid fa-shuffle"></i></button>
             </div>
         </div>
 
@@ -161,39 +161,10 @@
                 <i class="fa-solid fa-gear" style="color: white;"></i>
             </div>
             <div class="mt-5 w-full">
-                <p class="font-bold text-white text-xl">Weekly List</p>
+                <p class="font-bold text-white text-xl">Your Playlist</p>
                 <div class="h-[30vh] overflow-auto text-white scrollbar-hide ">
-                    <ol class="list-decimal pl-5 text-sm rounded-lg	p-2 ">
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Hymn for the Weekend</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            What Makes you beautiful</li>
-                        <li class="p-2  bg-yellow-300 text-black">Payphone <i class="fa-solid fa-play"
-                                style="color: black;"></i></li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Dynamite</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Rolling in the Deep</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Cruel Summer</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Beauty and the beat</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Dusk Till Dawn</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Cheap Thrills</li>
-                        <li
-                            class=" p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
-                            Closer</li>
-
+                    <ol class="list-decimal pl-5 text-sm rounded-lg	p-2 " id="songList">
+                       
                     </ol>
                 </div>
             </div>

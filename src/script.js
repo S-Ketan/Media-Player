@@ -9,64 +9,226 @@ let volume = document.getElementById('slider');
 let volumeValue = document.getElementById('sliderValue');
 let playPause = document.getElementById('playPause')
 let isAudioPlaying = false;
+let p_songTitle = document.getElementById('p-songTitle')
+let p_artistName = document.getElementById('p-artistName')
+let p_songImage = document.getElementById('p-songImage')
+let songDuration = document.getElementById('songDuration')
+let songList = document.getElementById("songList");
 let songs = [
     {
-        name : "Sky full of stars",
-        artist: "ColdPlay",
-        location: "../Songs/Sky full of stars.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/SFOS.jpeg",
-        artistImage:"../images/Artist Images/Coldplay.jpeg",
-    },
-    {
-        name : "Brown Rang",
+        name: "Brown Rang",
         artist: "Yo Yo Honey Singh",
         location: "../Songs/Brown Rang.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/BR.jpeg",
-        artistImage:"../images/Artist Images/Honey Singh.jpeg",
+
+        songImage: "../images/Song Images/BR.jpeg",
+        artistImage: "../images/Artist Images/Honey Singh.jpeg",
     },
     {
-        name : "Beauty and a beat",
+        name: "Sky full of stars",
+        artist: "ColdPlay",
+        location: "../Songs/Sky full of stars.mp3",
+
+        songImage: "../images/Song Images/SFOS.jpeg",
+        artistImage: "../images/Artist Images/Coldplay.jpeg",
+    },
+    {
+        name: "Beauty and a beat",
         artist: "Justin Bieber",
         location: "../Songs/Beauty and a beat.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/BAAB.jpeg",
-        artistImage:"../images/Artist Images/justin bieber.jpeg",
+
+        songImage: "../images/Song Images/BAAB.jpeg",
+        artistImage: "../images/Artist Images/justin bieber.jpeg",
     },
     {
-        name : "Closer",
+        name: "Closer",
         artist: "The Chainsmokers ft PJ",
         location: "../Songs/Closer.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/CLOSER.jpeg",
-        artistImage:"../images/Artist Images/The Chainsmokers.jpeg",
+
+        songImage: "../images/Song Images/CLOSER.jpeg",
+        artistImage: "../images/Artist Images/The Chainsmokers.jpeg",
     },
     {
-        name : "Cruel Summer",
+        name: "Cruel Summer",
         artist: "Taylor Swift",
         location: "../Songs/Cruel Summer.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/CS.jpeg",
-        artistImage:"../images/Artist Images/Taylor Swift.jpeg",
+
+        songImage: "../images/Song Images/CS.jpeg",
+        artistImage: "../images/Artist Images/Taylor Swift.jpeg",
     },
     {
-        name : "Night Changes",
+        name: "Night Changes",
         artist: "One Direction",
         location: "../Songs/Night Changes.mp3",
-        duration: music.duration,
-        songImage:"../images/Song Images/NC.jpeg",
-        artistImage:"../images/Artist Images/One Direction.jpeg",
+
+        songImage: "../images/Song Images/NC.jpeg",
+        artistImage: "../images/Artist Images/One Direction.jpeg",
     },
     {
-        name : "Payphone",
+        name: "Payphone",
         artist: "Maroon 5",
         location: "../Songs/Payphone.mp3",
-        duration: music.duration,
-        songImage:"../images/Maroon 5 - [Album] Overexposed.jpeg",
-        artistImage:"../images/Artist Images/Maroon 5.jpeg",
+
+        songImage: "../images/Maroon 5 - [Album] Overexposed.jpeg",
+        artistImage: "../images/Artist Images/Maroon 5.jpeg",
     },
 ];
+let songIndex = 0;
+let artistImage = songs[songIndex].artistImage;
+p_songImage.src = songs[songIndex].songImage;
+p_artistName.innerText = songs[songIndex].artist;
+p_songTitle.innerText = songs[songIndex].name;
+music.src = songs[songIndex].location;
+
+function displaySongList() {
+    const songList = document.getElementById('songList');
+    songList.innerHTML = songs.map((song, index) =>
+        `<li class="p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer hover:font-bold" data-index="${index}">
+            ${song.name}
+        </li>`
+    ).join('');
+
+    const songItems = songList.querySelectorAll('li');
+    songItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const songIndex = this.getAttribute('data-index'); // Get the correct song index
+            playSong(songIndex); // Pass the index to play the song
+        });
+    });
+}
+function playSong(index) {
+    const selectedSong = songs[index];
+
+    // Update the player with the selected song details
+    p_songTitle.innerText = selectedSong.name;
+    p_artistName.innerText = selectedSong.artist;
+    p_songImage.src = selectedSong.songImage;
+
+    // Set the audio source and play the song
+    music.src = selectedSong.location;
+    music.play();
+
+    // Update UI state
+    playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    isAudioPlaying = true;
+}
+
+
+displaySongList();
+
+function skipForward(seconds) {
+    if (music) {
+        music.currentTime += seconds;
+    }
+}
+function rewind(seconds) {
+    if (music) {
+        music.currentTime -= seconds;
+    }
+}
+
+
+window.addEventListener('keydown', function (event) {
+
+    if (event.key === 'ArrowRight') {
+        skipForward(5);
+    }
+});
+window.addEventListener('keydown', function (event) {
+
+    if (event.key === 'ArrowLeft') {
+        rewind(5);
+    }
+});
+window.addEventListener('keydown', function (event) {
+
+    if (event.key === 'ArrowDown') {
+        volume.value--;
+        sliderValue.innerText = volume.value;
+        music.volume = volume.value / 100;
+    }
+});
+window.addEventListener('keydown', function (event) {
+
+    if (event.key === 'ArrowUp') {
+        volume.value++;
+        sliderValue.innerText = volume.value;
+        music.volume = volume.value / 100;
+    }
+});
+window.addEventListener('keydown', function (event) {
+    // Check if the pressed key is the spacebar
+    if (event.key === ' ' || event.code === 'Space') {
+        event.preventDefault(); // Prevent default spacebar scroll behavior
+        audioPlay(); // Call the audioPlay function
+    }
+})
+
+
+function updatePlaybackTime() {
+    var currentTime = music.currentTime;
+    var minutes = Math.floor(currentTime / 60);
+    var seconds = Math.floor(currentTime % 60);
+    document.getElementById('completedDuration').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+window.addEventListener('load', function () {
+    updatePlaybackTime();
+    music.addEventListener('timeupdate', updatePlaybackTime);
+});
+
+window.addEventListener('load', function () {
+    var minutes = 0;
+    var seconds = 0;
+
+    music.addEventListener('loadedmetadata', function () {
+
+        var duration = music.duration;
+        minutes = Math.floor(duration / 60);
+        seconds = Math.floor(duration % 60);
+        songDuration.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        music.play()
+    });
+});
+
+document.getElementById('nextButton').addEventListener('click', nextButton);
+
+function nextButton() {
+    if (songIndex !== songs.length - 1) {
+
+        songIndex += 1;
+
+    } else {
+        songIndex = 0;
+
+    }
+    musicDisplay();
+    playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`
+    music.play();
+}
+
+function previousButton() {
+    if (songIndex !== 0) {
+        songIndex -= 1;
+        musicDisplay();
+        playPause.innerHTML = '<i class="fa-solid fa-pause"></i>'
+        music.play();
+    }
+    else {
+        songIndex = songs.length - 1;
+        musicDisplay();
+        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`
+        music.play();
+    }
+}
+
+function musicDisplay() {
+    music.src = songs[songIndex].location;
+    p_songTitle.innerText = songs[songIndex].name;
+    p_artistName.innerText = songs[songIndex].artist;
+    p_songImage.src = songs[songIndex].songImage;
+    coverImage.style.backgroundImage = url(songs[songIndex].artistImage);
+}
+
 
 
 
@@ -136,11 +298,13 @@ function loadingBar() {
     let musicWidth = (music.currentTime / music.duration) * 100;
     progressedBar.style.width = musicWidth + "%";
     if (musicWidth === 100) {
-        playPause.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        nextButton();
+        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     }
 }
 
 music.addEventListener('timeupdate', loadingBar)
+
 function toggleMusicPlayer() {
     let mainContent = document.getElementById("main");
     if (isMusicPlayerVisible) {
@@ -304,13 +468,15 @@ function toggleMusicPlayer() {
 
         mainContent.innerHTML = `
     <div class=" w-[65vw] h-[90vh] ml-[20vw] p-10 overflow-auto scrollbar-hide">
-        <div class=" h-full w-full relative  p-10" style="background: url(../images/Maroon\\ 5\\ -\\ [Album]\\ Overexposed.jpeg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+        <div class=" h-full w-full relative  p-10" id="artistImage" style="background: url('${songs[songIndex].artistImage}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <div class="absolute inset-0 h-full w-full bg-white opacity-40 z-10"></div>
             <div class="bg-black bg-opacity-50 border-black border-[3px] h-full w-full flex justify-around p-10 z-20 relative rounded-3xl">
                 <div class=" h-full bg-white text-center rounded-xl">
-                    <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[70%] w-auto">
-                    <p class="text-5xl">Payphone</p>
-                    <p class="text-2xl mt-4 ">Maroon 5</p>
+                    <img src="${p_songImage.src}" alt="" class="h-[70%] w-full">
+                    <div class="p-2">
+                    <p class="text-5xl" >${p_songTitle.innerText}</p>
+                    <p class="text-2xl mt-4 " >${p_artistName.innerText}</p>
+                    </div>
                 </div>
                 <div class="bg-gray-800 border-white border-2 w-[40%] text-white p-3 overflow-auto scrollbar-hide rounded-xl">
                     <p class="text-4xl">Lyrics</p>
@@ -322,4 +488,6 @@ function toggleMusicPlayer() {
     `;
         isMusicPlayerVisible = true;
     }
+
 }
+
