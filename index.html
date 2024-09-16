@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="./src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="../images/logo.png">
+    <link rel="icon" href="./images/logo.png">
 
     <title>Media Player</title>
     <style>
@@ -52,11 +52,11 @@
         }
 
         .cursor-custom {
-            cursor: url('../images/cursor.svg'), auto;
+            cursor: url('./images/cursor.svg'), auto;
         }
 
         .custom-cursor-pointer {
-            cursor: url('../images/pointer.svg'), pointer;
+            cursor: url('./images/pointer.svg'), pointer;
         }
 
         .active-song {
@@ -78,7 +78,7 @@
 
         <div class="fixed h-[100vh] w-[20vw]  bg-[#2E2E2E] flex flex-col items-center">
             <div>
-                <img src="../images/logo.png" alt="" class=" h-24 w-auto m-auto">
+                <img src="./images/logo.png" alt="" class=" h-24 w-auto m-auto">
             </div>
             <div class=" w-[85%] p-16 ">
                 <div class=" flex flex-col gap-10 w-full font-bold text-base ">
@@ -122,7 +122,7 @@
         <div class="flex items-center gap-5 ml-4  w-[20vw] p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer"
             id="currentSong">
             <div class="h-[100%]  ">
-                <img src="../images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[100%] w-auto rounded-full"
+                <img src="./images/Maroon 5 - [Album] Overexposed.jpeg" alt="" class="h-[100%] w-auto rounded-full"
                     id="p-songImage">
             </div>
             <div>
@@ -170,7 +170,7 @@
         <div class="fixed h-[100vh] w-[15vw]   flex flex-col items-center right-0 p-3">
             <div class="h-[10vh] w-full flex items-center gap-2">
                 <div class="h-[100%]  ">
-                    <img src="../images/🎒.jpg" alt="" class="h-[100%] w-auto rounded-full">
+                    <img src="./images/🎒.jpg" alt="" class="h-[100%] w-auto rounded-full">
                 </div>
                 <div>
                     <p class="text-white">Ethereal</p>
@@ -192,7 +192,7 @@
                 <div
                     class="h-[10vh] w-full flex items-center gap-2 p-2 mt-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
                     <div class="h-[100%] ">
-                        <img src="../images/End of a Beginning.jpeg" alt="" class="h-[100%] w-auto ">
+                        <img src="./images/End of a Beginning.jpeg" alt="" class="h-[100%] w-auto ">
                     </div>
                     <div>
                         <p>End of Beginning</p>
@@ -203,7 +203,7 @@
                 <div
                     class="h-[10vh] w-full flex items-center gap-2 mt-2 rounded-lg p-2 transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer">
                     <div class="h-[100%]  ">
-                        <img src="../images/Stay.jpeg" alt="" class="h-[100%] w-auto ">
+                        <img src="./images/Stay.jpeg" alt="" class="h-[100%] w-auto ">
                     </div>
                     <div>
                         <p>Stay</p>
@@ -278,43 +278,43 @@
                 <div class="flex gap-5 mt-5">
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/Harry Styles Vinyl.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/Harry Styles Vinyl.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">Fine Line</p>
                         <p class="text-[10px] ml-2 text-gray-400">Harry Styles</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/Reputation album cover in Color😮😮.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/Reputation album cover in Color😮😮.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">Reputation</p>
                         <p class="text-[10px] ml-2 text-gray-400">Taylor Swift</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/AFTER HOURS - THE WEEKND _ ALBUM COVER.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/AFTER HOURS - THE WEEKND _ ALBUM COVER.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">After Hours</p>
                         <p class="text-[10px] ml-2 text-gray-400">The Weeknd</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/olivia rodrigo.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/olivia rodrigo.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">Sour</p>
                         <p class="text-[10px] ml-2 text-gray-400">Olivia Rodrigo</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/One direction Four Album cover b&w.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/One direction Four Album cover b&w.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">Four</p>
                         <p class="text-[10px] ml-2 text-gray-400">One Direction</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/positions dlx album cover.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/positions dlx album cover.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">Positions</p>
                         <p class="text-[10px] ml-2 text-gray-400">Ariana Grande</p>
                     </div>
                     <div
                         class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
-                        <img src="../images/Happier Than Ever.jpeg" alt="" class="h-[70%] w-auto">
+                        <img src="./images/Happier Than Ever.jpeg" alt="" class="h-[70%] w-auto">
                         <p class="ml-2">HTE</p>
                         <p class="text-[10px] ml-2 text-gray-400">Billie Eilish</p>
                     </div>
@@ -328,43 +328,43 @@
                 </div>
                 <div class="flex gap-8 mt-5 text-center">
                     <div class=" h-[150px]">
-                        <img src="../images/taylor swift.jpeg" alt=""
+                        <img src="./images/taylor swift.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Taylor Swift</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/Future.jpeg" alt=""
+                        <img src="./images/Future.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Future</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/SZA.jpeg" alt=""
+                        <img src="./images/SZA.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">SZA</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/eminem.jpeg" alt=""
+                        <img src="./images/eminem.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Eminem</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/justin bieber.jpeg" alt=""
+                        <img src="./images/justin bieber.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Justin Bieber</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/shawn mendes.jpeg" alt=""
+                        <img src="./images/shawn mendes.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Shawn Mendes</p>
                     </div>
                     <div class=" h-[150px]">
-                        <img src="../images/charlie puth.jpeg" alt=""
+                        <img src="./images/charlie puth.jpeg" alt=""
                             class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer">
 
                         <p class=" mt-2 ">Charlie Puth</p>
@@ -380,7 +380,7 @@
 
         </div>
     </main>
-    <script src="script.js">
+    <script src="./src/script.js">
 
     </script>
 

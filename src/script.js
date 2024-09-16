@@ -20,58 +20,58 @@ let songs = [
     {
         name: "Brown Rang",
         artist: "Yo Yo Honey Singh",
-        location: "../Songs/Brown Rang.mp3",
+        location: "./Songs/Brown Rang.mp3",
 
-        songImage: "../images/Song Images/BR.jpeg",
-        artistImage: "../images/Artist Images/Honey Singh.jpeg",
+        songImage: "./images/Song Images/BR.jpeg",
+        artistImage: "./images/Artist Images/Honey Singh.jpeg",
     },
     {
         name: "Sky full of stars",
         artist: "ColdPlay",
-        location: "../Songs/Sky full of stars.mp3",
+        location: "./Songs/Sky full of stars.mp3",
 
-        songImage: "../images/Song Images/SFOS.jpeg",
-        artistImage: "../images/Artist Images/Coldplay.jpeg",
+        songImage: "./images/Song Images/SFOS.jpeg",
+        artistImage: "./images/Artist Images/Coldplay.jpeg",
     },
     {
         name: "Beauty and a beat",
         artist: "Justin Bieber",
-        location: "../Songs/Beauty and a beat.mp3",
+        location: "./Songs/Beauty and a beat.mp3",
 
-        songImage: "../images/Song Images/BAAB.jpeg",
-        artistImage: "../images/Artist Images/justin bieber.jpeg",
+        songImage: "./images/Song Images/BAAB.jpeg",
+        artistImage: "./images/Artist Images/justin bieber.jpeg",
     },
     {
         name: "Closer",
         artist: "The Chainsmokers ft PJ",
-        location: "../Songs/Closer.mp3",
+        location: "./Songs/Closer.mp3",
 
-        songImage: "../images/Song Images/CLOSER.jpeg",
-        artistImage: "../images/Artist Images/The Chainsmokers.jpeg",
+        songImage: "./images/Song Images/CLOSER.jpeg",
+        artistImage: "./images/Artist Images/The Chainsmokers.jpeg",
     },
     {
         name: "Cruel Summer",
         artist: "Taylor Swift",
-        location: "../Songs/Cruel Summer.mp3",
+        location: "./Songs/Cruel Summer.mp3",
 
-        songImage: "../images/Song Images/CS.jpeg",
-        artistImage: "../images/Artist Images/Taylor Swift.jpeg",
+        songImage: "./images/Song Images/CS.jpeg",
+        artistImage: "./images/Artist Images/Taylor Swift.jpeg",
     },
     {
         name: "Night Changes",
         artist: "One Direction",
-        location: "../Songs/Night Changes.mp3",
+        location: "./Songs/Night Changes.mp3",
 
-        songImage: "../images/Song Images/NC.jpeg",
-        artistImage: "../images/Artist Images/One Direction.jpeg",
+        songImage: "./images/Song Images/NC.jpeg",
+        artistImage: "./images/Artist Images/One Direction.jpeg",
     },
     {
         name: "Payphone",
         artist: "Maroon 5",
-        location: "../Songs/Payphone.mp3",
+        location: "./Songs/Payphone.mp3",
 
-        songImage: "../images/Maroon 5 - [Album] Overexposed.jpeg",
-        artistImage: "../images/Artist Images/Maroon 5.jpeg",
+        songImage: "./images/Maroon 5 - [Album] Overexposed.jpeg",
+        artistImage: "./images/Artist Images/Maroon 5.jpeg",
     },
 ];
 let songIndex = 0;
@@ -383,43 +383,43 @@ function toggleMusicPlayer() {
         <div class="flex gap-5 mt-5">
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/Harry Styles Vinyl.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/Harry Styles Vinyl.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">Fine Line</p>
                 <p class="text-[10px] ml-2 text-gray-400">Harry Styles</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/Reputation album cover in Color😮😮.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/Reputation album cover in Color😮😮.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">Reputation</p>
                 <p class="text-[10px] ml-2 text-gray-400">Taylor Swift</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/AFTER HOURS - THE WEEKND _ ALBUM COVER.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/AFTER HOURS - THE WEEKND _ ALBUM COVER.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">After Hours</p>
                 <p class="text-[10px] ml-2 text-gray-400">The Weeknd</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/olivia rodrigo.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/olivia rodrigo.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">Sour</p>
                 <p class="text-[10px] ml-2 text-gray-400">Olivia Rodrigo</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/One direction Four Album cover b&w.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/One direction Four Album cover b&w.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">Four</p>
                 <p class="text-[10px] ml-2 text-gray-400">One Direction</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/positions dlx album cover.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/positions dlx album cover.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">Positions</p>
                 <p class="text-[10px] ml-2 text-gray-400">Ariana Grande</p>
             </div>
             <div
                 class="bg-[#2E2E2E] h-[150px] transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
-                <img src="../images/Happier Than Ever.jpeg" alt="" class="h-[70%] w-auto">
+                <img src="./images/Happier Than Ever.jpeg" alt="" class="h-[70%] w-auto">
                 <p class="ml-2">HTE</p>
                 <p class="text-[10px] ml-2 text-gray-400">Billie Eilish</p>
             </div>
@@ -433,43 +433,43 @@ function toggleMusicPlayer() {
         </div>
         <div class="flex gap-8 mt-5 text-center">
             <div class=" h-[150px]">
-                <img src="../images/taylor swift.jpeg" alt=""
+                <img src="./images/taylor swift.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Taylor Swift</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/Future.jpeg" alt=""
+                <img src="./images/Future.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Future</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/SZA.jpeg" alt=""
+                <img src="./images/SZA.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">SZA</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/eminem.jpeg" alt=""
+                <img src="./images/eminem.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Eminem</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/justin bieber.jpeg" alt=""
+                <img src="./images/justin bieber.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Justin Bieber</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/shawn mendes.jpeg" alt=""
+                <img src="./images/shawn mendes.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Shawn Mendes</p>
             </div>
             <div class=" h-[150px]">
-                <img src="../images/charlie puth.jpeg" alt=""
+                <img src="./images/charlie puth.jpeg" alt=""
                     class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] cursor-pointer">
 
                 <p class=" mt-2 ">Charlie Puth</p>
