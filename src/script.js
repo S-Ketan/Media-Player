@@ -16,6 +16,8 @@ let songDuration = document.getElementById('songDuration')
 let songList = document.getElementById("songList");
 let currentPlayingItem = null;
 let isShuffle = false;
+let searchInput = document.getElementById('search')
+let suggestionsList = document.getElementById('suggestions')
 let songs = [
     {
         name: "Brown Rang",
@@ -81,6 +83,42 @@ p_artistName.innerText = songs[songIndex].artist;
 p_songTitle.innerText = songs[songIndex].name;
 music.src = songs[songIndex].location;
 
+    function displaySuggestions(filteredSongs) {
+        // Clear the previous suggestions
+        suggestionsList.innerHTML = '';
+
+        // If there are no matching songs, show no results
+        if (filteredSongs.length === 0 && searchInput.value !== "") {
+            suggestionsList.innerHTML = '<li>No songs found</li>';
+            return;
+        }
+
+        // Loop through filtered songs and display each as a suggestion
+        filteredSongs.forEach((song, index) => {
+            const suggestionItem = document.createElement('li');
+            suggestionItem.className = 'p-2 rounded-lg text-white custom-cursor-pointer hover:bg-gray-700';
+            suggestionItem.textContent = `${song.name} - ${song.artist}`;
+
+            // Add click event to play the song when clicked
+            suggestionItem.addEventListener('click', function () {
+                playSong(index);
+                searchInput.value = ''; // Clear search input
+                suggestionsList.innerHTML = ''; // Clear suggestions after selection
+            });
+
+            // Append the suggestion item to the suggestions list
+            suggestionsList.appendChild(suggestionItem);
+        });
+    }
+
+searchInput.addEventListener('input', function () {
+    let searchTerm = searchInput.value;
+    const filteredSongs = songs.filter(song =>
+        song.name.toLowerCase().includes(searchTerm) ||
+        song.artist.toLowerCase().includes(searchTerm))
+    displaySuggestions(filteredSongs);
+})
+
 document.getElementById('shuffleButton').addEventListener('click', toggleShuffle);
 
 function toggleShuffle() {
@@ -126,8 +164,8 @@ function displaySongList() {
     const songItems = songList.querySelectorAll('li');
     songItems.forEach(item => {
         item.addEventListener('click', function () {
-            const songIndex = this.getAttribute('data-index'); 
-            playSong(songIndex); 
+            const songIndex = this.getAttribute('data-index');
+            playSong(songIndex);
         });
     });
 }
@@ -154,11 +192,13 @@ function playSong(index) {
 displaySongList();
 
 function skipForward(seconds) {
+    //Forwards Songs
     if (music) {
         music.currentTime += seconds;
     }
 }
 function rewind(seconds) {
+    //Rewinds Songs
     if (music) {
         music.currentTime -= seconds;
     }
@@ -189,10 +229,10 @@ window.addEventListener('keydown', function (event) {
 });
 
 window.addEventListener('keydown', function (event) {
-    
+
     if (event.key === ' ' || event.code === 'Space') {
-        event.preventDefault(); 
-        audioPlay(); 
+        event.preventDefault();
+        audioPlay();
     }
 })
 
