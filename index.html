@@ -12,6 +12,14 @@
 
     <title>Media Player</title>
     <style>
+      #currentSong {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1; /* Fully visible */ /* Smooth transition for swipe effect */
+      }
+      #currentSong.hidden {
+        opacity: 0; /* Fully hidden */
+        transition: opacity 0.5s ease-in-out;
+      }
       .highlight {
         background-color: #ffd43b;
         /* Or your preferred highlight color */
@@ -116,12 +124,14 @@
         </div>
       </div>
     </aside>
-    <div class="hidden sm:block">
+
+    <!-- Playbar -->
+    <div class="block">
       <div
-        class="fixed w-full h-[10vh] bg-[#2e2d2d] bottom-0 z-[50] p-2 flex gap-14 text-white"
+        class="fixed w-full h-[10vh] bg-[#2e2d2d] bottom-2 sm:bottom-0 z-[50] p-2 flex sm:gap-14 text-white"
       >
         <div
-          class="flex items-center gap-5 ml-4 w-[20vw] p-2 rounded-lg transition-transform transform hover:scale-105 hover:bg-[#FFD43B] hover:text-black hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer"
+          class="flex items-center sm:gap-5 gap-2 sm:ml-4 sm:w-[20vw] w-[60vw] p-2 rounded-lg sm:transition-transform sm:transform sm:hover:scale-105 sm:hover:bg-[#FFD43B] sm:hover:text-black sm:hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.4)] text-white custom-cursor-pointer"
           id="currentSong"
         >
           <div class="h-[100%]">
@@ -133,11 +143,11 @@
             />
           </div>
           <div>
-            <p class="text-xl" id="p-songTitle"></p>
+            <p class="sm:text-xl text-base" id="p-songTitle"></p>
             <p class="text-xs" id="p-artistName"></p>
           </div>
         </div>
-        <div class="flex items-center w-[45vw] gap-10">
+        <div class="sm:flex items-center sm:w-[45vw] gap-10 hidden">
           <p id="completedDuration"></p>
           <div
             class="w-full bg-gray-700 h-3 rounded-lg overflow-hidden"
@@ -152,17 +162,19 @@
           <p id="songDuration"></p>
         </div>
         <div class="w-[20vw] flex justify-between p-2 text-white">
-          <div class="flex justify-between w-[50%] items-center">
-            <button id="previousButton" onclick="previousButton()">
+          <div
+            class="flex sm:justify-between sm:gap-0 gap-2 w-[50%] items-center"
+          >
+            <button id="previousButton" onclick="previousButton()" class="hidden sm:block">
               <i class="fa-solid fa-backward"></i>
             </button>
 
             <button id="playPause"><i class="fa-solid fa-play"></i></button>
-            <button id="nextButton" onclick="nextButton()">
+            <button id="nextButton" onclick="nextButton()" class="hidden sm:block">
               <i class="fa-solid fa-forward"></i>
             </button>
           </div>
-          <div class="flex w-[25%] items-center gap-10">
+          <div class="flex w-[25%] sm:items-center sm:gap-10">
             <div class="flex flex-col gap-2 relative">
               <div
                 class="absolute right-[0px] translate-x-14 -translate-y-20 hidden"
@@ -177,11 +189,13 @@
                   style="transform: rotate(-90deg)"
                 />
               </div>
-              <div class="flex gap-2">
-                <p id="sliderValue" class="w-[30px]"></p>
-                <button onclick="displayVolumeSlider()">
-                  <i class="fa-solid fa-volume-high"></i>
-                </button>
+              <div class="hidden sm:block">
+                <div class="flex gap-2">
+                  <p id="sliderValue" class="w-[30px]"></p>
+                  <button onclick="displayVolumeSlider()">
+                    <i class="fa-solid fa-volume-high"></i>
+                  </button>
+                </div>
               </div>
             </div>
             <button id="shuffleButton">
@@ -189,7 +203,18 @@
             </button>
           </div>
         </div>
+        
       </div>
+      <div
+            class="w-[100vw] bg-gray-700 h-2 rounded-lg overflow-hidden sm:hidden bottom-0 z-[50] fixed"
+            id="loadingBar"
+          >
+            <div
+              class="bg-yellow-300 h-full w-[0%] transition-all ease-linear"
+              id="progressedBarSmallerDevices"
+            ></div>
+          </div>
+      
     </div>
     <aside class="hidden sm:block">
       <div
@@ -446,7 +471,9 @@
 
               <p class="mt-2">Taylor Swift</p>
             </div>
-            <div  class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs">
+            <div
+              class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"
+            >
               <img
                 src="./images/Future.jpeg"
                 alt=""
@@ -455,7 +482,9 @@
 
               <p class="mt-2">Future</p>
             </div>
-            <div class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs">
+            <div
+              class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"
+            >
               <img
                 src="./images/SZA.jpeg"
                 alt=""
@@ -464,7 +493,9 @@
 
               <p class="mt-2">SZA</p>
             </div>
-            <div  class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs">
+            <div
+              class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"
+            >
               <img
                 src="./images/eminem.jpeg"
                 alt=""
@@ -473,33 +504,37 @@
 
               <p class="mt-2">Eminem</p>
             </div>
-            <div  class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"">
-              <img
-                src="./images/justin bieber.jpeg"
-                alt=""
-                class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
-              />
+            <div class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base
+            text-xs"">
+            <img
+              src="./images/justin bieber.jpeg"
+              alt=""
+              class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
+            />
 
-              <p class="mt-2">Justin Bieber</p>
-            </div>
-            <div  class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs">
-              <img
-                src="./images/shawn mendes.jpeg"
-                alt=""
-                class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
-              />
+            <p class="mt-2">Justin Bieber</p>
+          </div>
+          <div
+            class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"
+          >
+            <img
+              src="./images/shawn mendes.jpeg"
+              alt=""
+              class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
+            />
 
-              <p class="mt-2">Shawn Mendes</p>
-            </div>
-            <div  class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs">
-              <img
-                src="./images/charlie puth.jpeg"
-                alt=""
-                class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
-              />
+            <p class="mt-2">Shawn Mendes</p>
+          </div>
+          <div
+            class="sm:h-[130px] sm:w-auto h-auto w-[25%] sm:text-base text-xs"
+          >
+            <img
+              src="./images/charlie puth.jpeg"
+              alt=""
+              class="h-[70%] w-auto rounded-full transition-transform duration-50 ease-in-out transform hover:scale-125 hover:shadow-[0_0_30px_10px_rgba(255,223,0,0.7)] custom-cursor-pointer"
+            />
 
-              <p class="mt-2">Charlie Puth</p>
-            </div>
+            <p class="mt-2">Charlie Puth</p>
           </div>
         </div>
       </div>

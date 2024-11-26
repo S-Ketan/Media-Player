@@ -16,16 +16,17 @@ This is a simple media player web application that allows users to play, shuffle
 
 ```
 images/
-    Artist Images/
-    Song Images/
+    ├── Artist Images/
+    └── Song Images/
 index.html
 Music/
 package.json
+README.md
 Songs/
 src/
-    input.css
-    output.css
-    script.js
+    ├── input.css
+    ├── output.css
+    └── script.js
 tailwind.config.js
 ```
 
@@ -38,24 +39,24 @@ tailwind.config.js
 ### Installation
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/media-player.git
-    cd media-player
-    ```
+        ```sh
+        git clone https://github.com/S-Ketan/media-player.git
+        cd media-player
+        ```
 
 2. Install dependencies:
-    ```sh
-    npm install
-    ```
+        ```sh
+        npm install
+        ```
 
 3. Build the CSS using Tailwind:
-    ```sh
-    npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
-    ```
+        ```sh
+        npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+        ```
 
 ### Running the Application
 
-Open `index.html` in your web browser to run the application.
+Open [`index.html`](index.html) in your web browser to run the application.
 
 ## Usage
 
@@ -70,17 +71,17 @@ Open `index.html` in your web browser to run the application.
 
 ### HTML
 
-The main HTML file is `index.html`, which includes the structure of the media player and links to the CSS and JavaScript files.
+The main HTML file is [`index.html`](index.html), which includes the structure of the media player and links to the CSS and JavaScript files.
 
 ### CSS
 
-The CSS is built using Tailwind CSS. The input CSS file is `input.css`, and the output CSS file is `output.css`.
+The CSS is built using Tailwind CSS. The input CSS file is [`src/input.css`](src/input.css), and the output CSS file is [`src/output.css`](src/output.css).
 
 ### JavaScript
 
-The main JavaScript file is `script.js`, which includes the functionality for playing songs, shuffling, searching, and updating the UI.
+The main JavaScript file is [`src/script.js`](src/script.js), which includes the functionality for playing songs, shuffling, searching, and updating the UI.
 
-#### Key functions in `script.js`:
+#### Key functions in [`src/script.js`](src/script.js):
 
 - `toggleShuffle()`: Toggles shuffle mode.
 - `getNextSongIndex()`: Gets the next song index based on shuffle mode.
@@ -102,5 +103,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgements
 
-- Tailwind CSS
-- Font Awesome
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Font Awesome](https://fontawesome.com/)

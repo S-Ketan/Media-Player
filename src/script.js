@@ -1,5 +1,7 @@
 const carousel = document.getElementById('carousel');
 const items = document.querySelectorAll('.carousel-item');
+const currentSong = document.getElementById('currentSong');
+const progressedBarSmallerDevices = document.getElementById('progressedBarSmallerDevices');
 let currentIndex = 0;
 let isMusicPlayerVisible = false;
 let isSliderVisible = false;
@@ -82,6 +84,41 @@ p_songImage.src = songs[songIndex].songImage;
 p_artistName.innerText = songs[songIndex].artist;
 p_songTitle.innerText = songs[songIndex].name;
 music.src = songs[songIndex].location;
+
+const handleSwipe = (direction) => {
+    if (direction === 'right') {
+      nextButton(); // Call nextButton on right swipe
+    } else if (direction === 'left') {
+      previousButton(); // Call previousButton on left swipe
+    }
+  };
+
+
+// Variables to store the start and end positions
+let startX = 0;
+
+// Function to handle touch start
+currentSong.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX; // Store the starting X position
+});
+
+// Function to handle touch end
+currentSong.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX; // Get the ending X position
+
+    // Determine the swipe direction
+    if (startX - endX > 50) {
+        // Swipe left
+        console.log('Swiped left');
+        handleSwipe('left');
+        previousButton();
+      } else if (endX - startX > 50) {
+        // Swipe right
+        console.log('Swiped right');
+        handleSwipe('right');
+        nextButton();
+      }
+    });
 
     function displaySuggestions(filteredSongs) {
         // Clear the previous suggestions
@@ -270,12 +307,25 @@ function nextButton() {
     musicDisplay();
     playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     music.play();
+     // Start transition: fade-out
+    currentSong.classList.add('hidden');
+    
+    setTimeout(() => {
+      // End transition: fade-in
+      currentSong.classList.remove('hidden');
+    }, 500); // Match the duration of the CSS transition (0.5s)
 }
 function previousButton() {
     songIndex = getPreviousSongIndex();
     musicDisplay();
     playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     music.play();
+    currentSong.classList.add('hidden');
+  
+    setTimeout(() => {
+     // End transition: fade-in
+      currentSong.classList.remove('hidden');
+    }, 500); // Match the duration of the CSS transition (0.5s)
 }
 function musicDisplay() {
     music.src = songs[songIndex].location;
@@ -359,8 +409,17 @@ function loadingBar() {
         playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     }
 }
+function loadingBarSmallerDevices() {
+    let musicWidth = (music.currentTime / music.duration) * 100;
+    progressedBarSmallerDevices.style.width = musicWidth + "%";
+    if (musicWidth === 100) {
+        nextButton();
+        playPause.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    }
+}
 
 music.addEventListener('timeupdate', loadingBar)
+music.addEventListener('timeupdate', loadingBarSmallerDevices)
 
 function toggleMusicPlayer() {
     let mainContent = document.getElementById("main");
